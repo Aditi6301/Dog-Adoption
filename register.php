@@ -1,5 +1,5 @@
 <?php
-include('phRegistration.php');
+include('Registration.php');
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -43,7 +43,7 @@ include('phRegistration.php');
         <!-- Topbar -->
         <nav class="navbar navbar-expand navbar-dark bg-white topbar mb-4 static-top shadow">
 		<div class="container">
-		<a class="navbar-brand js-scroll-trigger" href="index.html"><img src="img/logo.png"></a>
+		<a class="navbar-brand js-scroll-trigger" href="index.html"><img src="img/final_woof.png" style="width: 150px; height:100px; padding-top:10px"></a>
 		
 		
 		</div>
@@ -76,7 +76,7 @@ include('phRegistration.php');
               
                 <div class="p-5">
                   <div class="text-center">
-                    <h1 class="h4 text-gray-900 mb-4">Production House Register</h1>
+                    <h1 class="h4 text-gray-900 mb-4">Register Here!</h1>
                   </div>
                  
                   <form class="user" method="POST">
@@ -90,22 +90,24 @@ include('phRegistration.php');
                 </div>
                 
                 <div class="form-group">
-                  <input type="text" name="PName" class="form-control form-control-user" id="exampleInputEmail" placeholder="Brand/Company Name">
-                </div>
-                <div class="form-group">
-                  <input type="text" name="Designation" class="form-control form-control-user" id="exampleInputEmail" placeholder="Your Designation">
-                </div>
-                <div class="form-group">
                   <input type="email" name="Email" class="form-control form-control-user" id="exampleInputEmail" placeholder="Email Address">
                 </div>
+                <div class="form-group">
+                  <input type="password" name="password1" class="form-control form-control-user" id="password1" placeholder="Enter password" onkeyup='check();'>
+                </div>
+                <div class="form-group">
+                  <input type="password" name="password2" class="form-control form-control-user" id="password2" placeholder="Confirm password" onkeyup ='check();'>
+                </div>
+
                 
                 <div class="form-group">
                   <input type="number" name="Phone" class="form-control form-control-user" id="exampleInputEmail" placeholder="Mobile Number">
                 </div>
                 <div class="form-group">
- <button type="submit" name="RegisterProduction" value="RegisterProduction" class="btn btn-primary btn-block" id="submit">Register
+ <button type="submit" name="RegisterUser" value="RegisterUser" class="btn btn-primary btn-block" id="submit">Register
                   </button>
                 </div>
+                <span id='message'></span><br>
               </form>
                  
                   <hr>
@@ -179,7 +181,23 @@ include('phRegistration.php');
 
   <!-- Page level custom scripts -->
   <script src="js/demo/datatables-demo.js"></script>
+  <script>
+  var check = function() {
+  if (document.getElementById('password1').value ==
+    document.getElementById('password2').value) {
+    document.getElementById('message').style.color = 'green';
+    document.getElementById('message').innerHTML = 'Passwords match';
+    document.getElementById('submit').disabled = false;
+  } else {
+    document.getElementById('message').style.color = 'red';
+    document.getElementById('message').innerHTML = 'Passwords do not match';
+    document.getElementById('submit').disabled = true;
+  }
+}
+  
+  </script>
 
 </body>
 
 </html>
+
