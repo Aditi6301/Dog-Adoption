@@ -14,7 +14,11 @@ include('LoginProcess.php');
   <meta name="description" content="">
   <meta name="author" content="">
 
-  <title>Homerun Brand Login</title>
+  <title>DogeCare</title>
+  
+
+  <link href="css/agency.min.css" rel="stylesheet">
+
 
   <!-- Custom fonts for this template -->
   <link href="vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
@@ -25,7 +29,10 @@ include('LoginProcess.php');
   <link href="css/agency.min.css" rel="stylesheet">
 
   <!-- Custom styles for this page -->
-  <link href="vendor/datatables/dataTables.bootstrap4.min.css" rel="stylesheet">
+  <!-- <link href="vendor/datatables/dataTables.bootstrap4.min.css" rel="stylesheet"> -->
+  <link rel="shortcut icon" href="https://image.shutterstock.com/image-vector/paw-prints-logo-vector-illustration-260nw-363492644.jpg" type="image/x-icon">
+<link rel="icon" href="https://image.shutterstock.com/image-vector/paw-prints-logo-vector-illustration-260nw-363492644.jpg" type="image/x-icon">
+ 
 
 </head>
 
@@ -80,7 +87,7 @@ include('LoginProcess.php');
                   <div class="text-center">
                     <h1 class="h4 text-gray-900 mb-4">Login</h1>
                   </div>
-                  <form class="user">
+                  <form class="user" method="POST">
                     <div class="form-group">
                       <input type="email" name="Email" class="form-control form-control-user" id="exampleInputEmail" aria-describedby="emailHelp" placeholder="Email Address">
                     </div>

@@ -24,8 +24,8 @@ if(isset($_POST['LoginUser']))
                 $_SESSION["loggedin"] = true;
                 $_SESSION["user_id"] = $user_id;
                 $_SESSION["email"] = $email;
-                $_SESSION["Type"] = $Type;
-                $_SESSION["Status"] =$row['Verified'] ;	
+                
+            
                 //on session creation
                 $_SESSION['timestamp']=time();
                 Header('Location: index.html' );
