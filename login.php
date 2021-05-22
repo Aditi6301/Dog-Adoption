@@ -15,7 +15,7 @@ include('LoginProcess.php');
   <meta name="author" content="">
 
   <title>DogeCare</title>
-  
+
 
   <link href="css/agency.min.css" rel="stylesheet">
 
@@ -32,7 +32,7 @@ include('LoginProcess.php');
   <!-- <link href="vendor/datatables/dataTables.bootstrap4.min.css" rel="stylesheet"> -->
   <link rel="shortcut icon" href="https://image.shutterstock.com/image-vector/paw-prints-logo-vector-illustration-260nw-363492644.jpg" type="image/x-icon">
 <link rel="icon" href="https://image.shutterstock.com/image-vector/paw-prints-logo-vector-illustration-260nw-363492644.jpg" type="image/x-icon">
- 
+
 
 </head>
 
@@ -41,7 +41,7 @@ include('LoginProcess.php');
   <!-- Page Wrapper -->
   <div id="wrapper">
 
-   
+
 
     <!-- Content Wrapper -->
     <div id="content-wrapper" class="d-flex flex-column">
@@ -53,25 +53,25 @@ include('LoginProcess.php');
         <nav class="navbar navbar-expand navbar-dark bg-white topbar mb-4 static-top shadow">
 		<div class="container">
 		<a class="navbar-brand js-scroll-trigger" href="index.html"><img src="img/final_woof.png" style="width: 150px; height:100px; padding-top:10px"></a>
-		
-		
+
+
 		</div>
           <!-- Sidebar Toggle (Topbar) -->
           <button id="sidebarToggleTop" class="btn btn-link d-md-none rounded-circle mr-3">
             <i class="fa fa-bars" style="color:#fed136"></i>
           </button>
 
-        
+
 
         </nav>
         <!-- End of Topbar -->
 
         <!-- Begin Page Content -->
-      
 
-         
+
+
     <div class="container">
-     
+
    <div class="row justify-content-center">
 
       <div class="col-xl-10 col-lg-12 col-md-9">
@@ -79,10 +79,10 @@ include('LoginProcess.php');
         <div class="card o-hidden border-0 shadow-lg my-5">
           <div class="card-body p-0">
             <!-- Nested Row within Card Body -->
-            
+
              <center>
               <div class="col-lg-6">
-              
+
                 <div class="p-5">
                   <div class="text-center">
                     <h1 class="h4 text-gray-900 mb-4">Login</h1>
@@ -94,12 +94,12 @@ include('LoginProcess.php');
                     <div class="form-group">
                       <input type="password" name="password"class="form-control form-control-user" id="exampleInputPassword" placeholder="Password">
                     </div>
-                    
+
                     <div class="form-group">
  <button type="submit" name="LoginUser" value="LoginUser" class="btn btn-primary btn-block" id="submit">Login
                   </button>
                 </div>
-                
+
                   </form>
                   <hr>
                   <div class="text-center">
@@ -108,8 +108,8 @@ include('LoginProcess.php');
                   <div class="text-center">
                     <p class="small">Create an account: <a href="register.html">Register</a>
                   </div>
-                  
-                
+
+
               </div>
             </div>
           </div>
@@ -121,20 +121,20 @@ include('LoginProcess.php');
 
   </div>
 
-     
-     
-  
-      
-    
-
-         
-         
-         
-         
-         
 
 
-     
+
+
+
+
+
+
+
+
+
+
+
+
 
       <!-- Footer -->
       <footer class="sticky-footer bg-white">
@@ -157,7 +157,7 @@ include('LoginProcess.php');
     <i class="fas fa-angle-up"></i>
   </a>
 
-  
+
 
   <!-- Bootstrap core JavaScript-->
   <script src="vendor/jquery/jquery.min.js"></script>
