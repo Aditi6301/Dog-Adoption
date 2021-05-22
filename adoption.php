@@ -1,5 +1,6 @@
 <?php
 include('AddDog.php');
+
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -66,6 +67,62 @@ include('AddDog.php');
 
         </nav>
         <p class="mb-4"><a class="btn btn-primary btn-icon-split btn-sm" data-toggle="modal" href="#AddNewModal"> <span class="text">Add New Title</span></a></p>
+        <form method="post" enctype="multipart/form-data">
+    <div class="portfolio-modal-lg modal fade" id="AddNewModal" tabindex="-1" role="dialog" aria-hidden="true">
+ 
+        <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="close-modal" data-dismiss="modal">
+            <div class="lr">
+                <div class="rl"></div>
+            </div>
+        </div>
+        <div class="container">
+        <center>
+          <div class="row">
+            <div class="col-lg-10 mx-auto">
+              <div class="modal-body">
+               
+
+                <ul class="list-inline">
+                    
+                    <div class="form-group">
+                      <input type="text" name="name" class="form-control form-control-user" id="exampleInputEmail" aria-describedby="emailHelp" placeholder="Name">
+                    </div>
+                    <div class="form-group">
+                      <input type="text" name="age" class="form-control form-control-user" id="exampleInputEmail" aria-describedby="emailHelp" placeholder="Age">
+                    </div>
+                    <div class="form-group">
+                      <textarea type="text" name="description" class="form-control form-control-user" id="exampleInputEmail" aria-describedby="emailHelp" placeholder="Description"></textarea>
+                    </div>
+                    <div class="form-group">
+                      <input type="text" name="breed" class="form-control form-control-user" id="exampleInputEmail" aria-describedby="emailHelp" placeholder="Breed">
+                    </div>
+
+                    <div class="custom-file">
+                        <input type="file" class="custom-file-input" name="image" id="customFile" data-toggle="tooltip" data-placement="top">
+                        <label align="left" class="custom-file-label" for="customFile">Dog Image</label>
+                     </div>
+                
+                	
+                	
+                    
+                    </ul>
+                
+                
+                    
+                <button name="Add_title" class="btn btn-primary" type="submit">Add New Doggo</button>   
+                <button class="btn btn-primary" data-dismiss="modal" type="button">
+                  <i class="fas fa-times"></i>
+                  Close</button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</form>
 <div class="section">
     <div class="container">
         <h2></h2>
@@ -107,63 +164,7 @@ include('AddDog.php');
         </div>
     </div>
 </div>
-<form method="post" enctype="multipart/form-data">
-    <div class="portfolio-modal-lg modal fade" id="AddNewModal" tabindex="-1" role="dialog" aria-hidden="true">
- 
-        <div class="modal-dialog">
-        <div class="modal-content">
-            <div class="close-modal" data-dismiss="modal">
-            <div class="lr">
-                <div class="rl"></div>
-            </div>
-        </div>
-        <div class="container">
-        <center>
-          <div class="row">
-            <div class="col-lg-10 mx-auto">
-              <div class="modal-body">
-               
 
-                <ul class="list-inline">
-                    
-                    <div class="form-group">
-                      <input type="text" name="name" class="form-control form-control-user" id="exampleInputEmail" aria-describedby="emailHelp" placeholder="Name">
-                    </div>
-                    <div class="form-group">
-                      <input type="text" name="age" class="form-control form-control-user" id="exampleInputEmail" aria-describedby="emailHelp" placeholder="Age">
-                    </div>
-                    <div class="form-group">
-                      <textarea type="text" name="description" class="form-control form-control-user" id="exampleInputEmail" aria-describedby="emailHelp" placeholder="Description"></textarea>
-                    </div>
-                    <div class="form-group">
-                      <input type="text" name="breed" class="form-control form-control-user" id="exampleInputEmail" aria-describedby="emailHelp" placeholder="Breed">
-                    </div>
-
-                    <div class="custom-file">
-                        <input type="file" class="custom-file-input"name="image" id="customFile" data-toggle="tooltip" data-placement="top">
-                        <label align="left" class="custom-file-label" for="customFile">Dog Image</label>
-                     </div>
-                
-                	
-                	
-                    
-                    </ul>
-                
-                
-                    
-                    
-                <button class="btn btn-primary" data-dismiss="modal" type="button" name="Add_title">Add New Doggo</button>
-                <button class="btn btn-primary" data-dismiss="modal" type="button">
-                  <i class="fas fa-times"></i>
-                  Close</button>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-</form>
 <footer class="sticky-footer bg-white">
   <div class="container my-auto">
     <div class="copyright text-center my-auto">
