@@ -22,13 +22,13 @@ if(isset($_POST['LoginUser']))
             {
                 
                 $_SESSION["loggedin"] = true;
-                $_SESSION["user_id"] = $user_id;
+                $_SESSION["user_id"] = $row['user_id'];
                 $_SESSION["email"] = $email;
-                
+                echo $_SESSION["user_id"];
             
                 //on session creation
                 $_SESSION['timestamp']=time();
-                Header('Location: index.html' );
+                 Header('Location: index.html' );
                 
             }
             else
