@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 5.0.4
+-- version 5.1.0
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: May 23, 2021 at 12:15 PM
--- Server version: 10.4.17-MariaDB
--- PHP Version: 8.0.2
+-- Generation Time: May 23, 2021 at 02:40 PM
+-- Server version: 10.4.19-MariaDB
+-- PHP Version: 8.0.6
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -46,7 +46,34 @@ INSERT INTO `adoptionpup` (`user_id`, `pup_id`, `name`, `age`, `city`, `descript
 (1, 1, 'Dexter', '9', 'Nashik', 'Dogs (Canis lupus familiaris) are domesticated mammals, not natural wild animals. They were original', 'dog51.jpg', 'lab'),
 (1, 2, 'Rex', '1', 'Pune', 'Dogs (Canis lupus familiaris) are domesticated mammals, not natural wild animals. They were original', 'indie.jpg', 'indie'),
 (1, 3, 'Rio', '1', 'Nashik', 'Dogs (Canis lupus familiaris) are domesticated mammals, not natural wild animals. They were original', 'dog3.jpg', 'indie'),
-(1, 4, 'Rio', '1', 'Nashik', 'Dogs (Canis lupus familiaris) are domesticated mammals, not natural wild animals. They were original', 'dog31.jpg', 'indie');
+(1, 4, 'Rio', '1', 'Nashik', 'Dogs (Canis lupus familiaris) are domesticated mammals, not natural wild animals. They were original', 'dog31.jpg', 'indie'),
+(1, 5, 'Fluffy', '2', 'Nashik', 'The cuttest fluff', 'daycare21.jpg', 'lab');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `daycare`
+--
+
+CREATE TABLE `daycare` (
+  `daycare_id` int(11) NOT NULL,
+  `user_id` int(11) DEFAULT NULL,
+  `name` varchar(40) DEFAULT NULL,
+  `description` varchar(100) DEFAULT NULL,
+  `address` varchar(60) DEFAULT NULL,
+  `email` varchar(30) DEFAULT NULL,
+  `phone_no` bigint(20) DEFAULT NULL,
+  `image` varchar(500) DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `daycare`
+--
+
+INSERT INTO `daycare` (`daycare_id`, `user_id`, `name`, `description`, `address`, `email`, `phone_no`, `image`) VALUES
+(1, 1, 'Regal Pets Centre', 'The ultimate pet place', 'nashik', 'nidhiabhyankar1@gmail.com', 9999776765, 'daycare16.jpg'),
+(2, 1, 'Pets Care Centre & Pet Resort', ' One-stop destination servicing customers both local and from other parts of Nashik.', 'Shop 18, Samrat Nucleus, Kathe Galli to Mumbai Naka Link Roa', 'nidhiabhyankar@gmail.com', 9878678564, 'daycare2.jpg'),
+(3, 1, 'Pets Mania', 'We believe in keeping your pets happawy.', 'Shop No 2 Gajanan Sankul, Gangapur Road, Nashik - 422002, Ne', 'viditbapat@gmail.com', 9878675645, 'daycare3.jpg');
 
 -- --------------------------------------------------------
 
@@ -83,6 +110,13 @@ ALTER TABLE `adoptionpup`
   ADD KEY `user_id` (`user_id`);
 
 --
+-- Indexes for table `daycare`
+--
+ALTER TABLE `daycare`
+  ADD PRIMARY KEY (`daycare_id`),
+  ADD KEY `user_id` (`user_id`);
+
+--
 -- Indexes for table `users`
 --
 ALTER TABLE `users`
@@ -96,7 +130,13 @@ ALTER TABLE `users`
 -- AUTO_INCREMENT for table `adoptionpup`
 --
 ALTER TABLE `adoptionpup`
-  MODIFY `pup_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+  MODIFY `pup_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+
+--
+-- AUTO_INCREMENT for table `daycare`
+--
+ALTER TABLE `daycare`
+  MODIFY `daycare_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
 -- AUTO_INCREMENT for table `users`
@@ -113,6 +153,12 @@ ALTER TABLE `users`
 --
 ALTER TABLE `adoptionpup`
   ADD CONSTRAINT `adoptionpup_ibfk_1` FOREIGN KEY (`user_id`) REFERENCES `users` (`user_id`);
+
+--
+-- Constraints for table `daycare`
+--
+ALTER TABLE `daycare`
+  ADD CONSTRAINT `daycare_ibfk_1` FOREIGN KEY (`user_id`) REFERENCES `users` (`user_id`);
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

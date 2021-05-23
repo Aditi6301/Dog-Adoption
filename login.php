@@ -106,7 +106,7 @@ include('LoginProcess.php');
                     <a class="small" href="forgotpassword.html">Forgot Password?</a>
                   </div>
                   <div class="text-center">
-                    <p class="small">Create an account: <a href="register.html">Register</a>
+                    <p class="small">Create an account: <a href="register.php">Register</a>
                   </div>
 
 

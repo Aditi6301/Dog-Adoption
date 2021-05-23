@@ -1,14 +1,14 @@
 <?php
 include('LoginProcess.php');
-if(isset($_POST['Add_title']))
+if(isset($_POST['Add_DayCare']))
 {
     // echo "hello";
     $user_id= $_SESSION["user_id"];
     $Name=$_POST['Name'];
-    $city=$_POST['city'];
-    $age=$_POST['age'];
-    $description=$_POST['description'];
-    $breed=$_POST['breed'];
+    $description=$_POST['Description'];
+    $address=$_POST['Address'];
+    $email=$_POST['Email'];
+    $phone_no=$_POST['Number'];
     $folder ="uploads/"; 
 
     $uploads_dir = "uploads/";
@@ -28,7 +28,7 @@ if(isset($_POST['Add_title']))
     
      { 
         $_SESSION['invalidImage']=1;
-        Header( 'Location: adoption.php');
+        Header( 'Location: daycare.php');
     //   echo "Sorry, only JPG, JPEG, PNG & GIF  files are allowed.";
      
      }
@@ -40,17 +40,17 @@ if(isset($_POST['Add_title']))
      }
      move_uploaded_file($tname, $uploads_dir.'/'.$pname);
 
-    $sql=$conn->prepare("INSERT INTO `adoptionpup`(`user_id`,`pup_id`,`name`,`age`,`city`,`description`,`image`,`breed`) VALUES ('$user_id',NULL,'$Name','$age','$city','$description','$pname','$breed')");
+    $sql=$conn->prepare("INSERT INTO `daycare`(`daycare_id`, `user_id`, `name`, `description`, `address`, `email`, `phone_no`, `image`)  VALUES (NULL,'$user_id','$Name','$description','$address','$email','$phone_no','$pname')");
     $result=$sql->execute() or die($conn->error);
     if($result)
     {
         // $_SESSION['titlesuccess']=1;
-         Header( 'Location: adoption.php?addDog=1');
+         Header( 'Location: daycare.php?daycare=1');
     }
     else
     {
         // $_SESSION['titlesuccess']=0;
-         Header( 'Location: adoption.php?addDog=0');
+         Header( 'Location: daycare.php?daycare=0');
     }
     
 
