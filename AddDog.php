@@ -1,13 +1,11 @@
 <?php
 include('LoginProcess.php');
-echo $_SESSION["user_id"];
-
 if(isset($_POST['Add_title']))
 {
-    echo "hello";
+    // echo "hello";
     $user_id= $_SESSION["user_id"];
-    echo  $user_id; 
-    $name=$_POST['name'];
+    $Name=$_POST['Name'];
+    $city=$_POST['city'];
     $age=$_POST['age'];
     $description=$_POST['description'];
     $breed=$_POST['breed'];
@@ -15,9 +13,9 @@ if(isset($_POST['Add_title']))
 
     $uploads_dir = "uploads/";
 
-    echo $_FILES["image"]["name"]; 
-    echo $_FILES["image"]["size"];
-    echo $_FILES["image"]["type"];
+    // echo $_FILES["image"]["name"]; 
+    // echo $_FILES["image"]["size"];
+    // echo $_FILES["image"]["type"];
     $pname = $_FILES["image"]["name"]; 
     $tname=$_FILES["image"]["tmp_name"];
     $allowed=array('jpeg','png' ,'jpg',NULL);
@@ -42,7 +40,7 @@ if(isset($_POST['Add_title']))
      }
      move_uploaded_file($tname, $uploads_dir.'/'.$pname);
 
-    $sql=$conn->prepare("INSERT INTO `adoptionpup`(`user_id`,`pup_id`,`name`,`age`,`description`,`image`,`breed`) VALUES ('$user_id',NULL,'$name','$age','$description','$pname','$breed')");
+    $sql=$conn->prepare("INSERT INTO `adoptionpup`(`user_id`,`pup_id`,`name`,`age`,`city`,`description`,`image`,`breed`) VALUES ('$user_id',NULL,'$Name','$age','$city','$description','$pname','$breed')");
     $result=$sql->execute() or die($conn->error);
     if($result)
     {

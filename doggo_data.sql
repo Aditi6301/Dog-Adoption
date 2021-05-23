@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 5.0.2
+-- version 5.0.4
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: May 22, 2021 at 12:27 PM
--- Server version: 10.4.13-MariaDB
--- PHP Version: 7.4.8
+-- Generation Time: May 23, 2021 at 12:15 PM
+-- Server version: 10.4.17-MariaDB
+-- PHP Version: 8.0.2
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -29,12 +29,24 @@ SET time_zone = "+00:00";
 
 CREATE TABLE `adoptionpup` (
   `user_id` int(11) DEFAULT NULL,
-  `pup_id` varchar(20) NOT NULL,
+  `pup_id` int(11) NOT NULL,
   `name` varchar(30) DEFAULT NULL,
+  `age` varchar(40) DEFAULT NULL,
+  `city` varchar(30) NOT NULL,
   `description` varchar(100) DEFAULT NULL,
   `image` varchar(500) DEFAULT NULL,
   `breed` varchar(30) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `adoptionpup`
+--
+
+INSERT INTO `adoptionpup` (`user_id`, `pup_id`, `name`, `age`, `city`, `description`, `image`, `breed`) VALUES
+(1, 1, 'Dexter', '9', 'Nashik', 'Dogs (Canis lupus familiaris) are domesticated mammals, not natural wild animals. They were original', 'dog51.jpg', 'lab'),
+(1, 2, 'Rex', '1', 'Pune', 'Dogs (Canis lupus familiaris) are domesticated mammals, not natural wild animals. They were original', 'indie.jpg', 'indie'),
+(1, 3, 'Rio', '1', 'Nashik', 'Dogs (Canis lupus familiaris) are domesticated mammals, not natural wild animals. They were original', 'dog3.jpg', 'indie'),
+(1, 4, 'Rio', '1', 'Nashik', 'Dogs (Canis lupus familiaris) are domesticated mammals, not natural wild animals. They were original', 'dog31.jpg', 'indie');
 
 -- --------------------------------------------------------
 
@@ -79,6 +91,12 @@ ALTER TABLE `users`
 --
 -- AUTO_INCREMENT for dumped tables
 --
+
+--
+-- AUTO_INCREMENT for table `adoptionpup`
+--
+ALTER TABLE `adoptionpup`
+  MODIFY `pup_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
 -- AUTO_INCREMENT for table `users`

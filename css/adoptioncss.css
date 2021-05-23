@@ -305,7 +305,8 @@ input[type="button"].button.yellow:hover {
 }
 
 .box {
-    border: 1px solid #cccccc
+    border: 1px solid #cccccc;
+    display: flex;
 }
 
 .fa {
