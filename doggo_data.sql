@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 5.1.0
+-- version 5.0.2
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: May 23, 2021 at 02:40 PM
--- Server version: 10.4.19-MariaDB
--- PHP Version: 8.0.6
+-- Generation Time: May 24, 2021 at 08:46 AM
+-- Server version: 10.4.13-MariaDB
+-- PHP Version: 7.4.8
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -43,11 +43,10 @@ CREATE TABLE `adoptionpup` (
 --
 
 INSERT INTO `adoptionpup` (`user_id`, `pup_id`, `name`, `age`, `city`, `description`, `image`, `breed`) VALUES
-(1, 1, 'Dexter', '9', 'Nashik', 'Dogs (Canis lupus familiaris) are domesticated mammals, not natural wild animals. They were original', 'dog51.jpg', 'lab'),
-(1, 2, 'Rex', '1', 'Pune', 'Dogs (Canis lupus familiaris) are domesticated mammals, not natural wild animals. They were original', 'indie.jpg', 'indie'),
-(1, 3, 'Rio', '1', 'Nashik', 'Dogs (Canis lupus familiaris) are domesticated mammals, not natural wild animals. They were original', 'dog3.jpg', 'indie'),
-(1, 4, 'Rio', '1', 'Nashik', 'Dogs (Canis lupus familiaris) are domesticated mammals, not natural wild animals. They were original', 'dog31.jpg', 'indie'),
-(1, 5, 'Fluffy', '2', 'Nashik', 'The cuttest fluff', 'daycare21.jpg', 'lab');
+(2, 1, 'Leo', '2', 'Pune', 'cutie', 'dog44.jpg', 'Lab'),
+(3, 2, 'Rex', '5', 'NASHIK', 'HANDSOME', 'dog2.jpg', 'Lab'),
+(1, 3, 'snow', '3', 'mumbai', 'hmmmm', 'indie1.jpg', 'indie'),
+(4, 4, 'casper', '6', 'sdddd', 'gyrryy', 'dog32.jpg', 'sdds');
 
 -- --------------------------------------------------------
 
@@ -96,7 +95,9 @@ CREATE TABLE `users` (
 
 INSERT INTO `users` (`user_id`, `first_name`, `last_name`, `email`, `password`, `mobile`) VALUES
 (1, 'Shreya', 'Kedia', 'shreyakedia149@gmail.com', '$2y$10$jO9zUB7yDZFVQUsqMUIuHeeBpfkByM8SdIENCmgahiFAEYqeSln6W', 11111111),
-(2, 'Radha', 'Mujumdar', 'radhamujumdar@gmail.com', '$2y$10$KQU7mA2sNjYb/yRj4iNcxOfEpaUJvPd6rxCgkoHM8NmT2mDno6YBe', 7420827617);
+(2, 'Radha', 'Mujumdar', 'radhamujumdar@gmail.com', '$2y$10$KQU7mA2sNjYb/yRj4iNcxOfEpaUJvPd6rxCgkoHM8NmT2mDno6YBe', 7420827617),
+(3, 'Aditi', 'Joshi', 'aditi6301@gmail.com', '$2y$10$9DNH7CmLmi15EeroVSfuC.KFgFwWxcI5N/nnv/zaSTGGxJJrnH/4O', 93838393939),
+(4, 'Nidhi', 'Abhyankar', 'nidhiabhyankar@gmail.com', '$2y$10$pmgmLfsgvolWo/xVkskOvOnN3V6DOZuazQqTpnCkxxXIN6xw6l6.i', 44444444444);
 
 --
 -- Indexes for dumped tables
@@ -130,7 +131,7 @@ ALTER TABLE `users`
 -- AUTO_INCREMENT for table `adoptionpup`
 --
 ALTER TABLE `adoptionpup`
-  MODIFY `pup_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+  MODIFY `pup_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
 -- AUTO_INCREMENT for table `daycare`
@@ -142,7 +143,7 @@ ALTER TABLE `daycare`
 -- AUTO_INCREMENT for table `users`
 --
 ALTER TABLE `users`
-  MODIFY `user_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `user_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
 -- Constraints for dumped tables
