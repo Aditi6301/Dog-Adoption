@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 5.0.2
+-- version 5.0.4
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: May 24, 2021 at 08:46 AM
--- Server version: 10.4.13-MariaDB
--- PHP Version: 7.4.8
+-- Generation Time: May 24, 2021 at 10:29 AM
+-- Server version: 10.4.17-MariaDB
+-- PHP Version: 8.0.2
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -70,7 +70,7 @@ CREATE TABLE `daycare` (
 --
 
 INSERT INTO `daycare` (`daycare_id`, `user_id`, `name`, `description`, `address`, `email`, `phone_no`, `image`) VALUES
-(1, 1, 'Regal Pets Centre', 'The ultimate pet place', 'nashik', 'nidhiabhyankar1@gmail.com', 9999776765, 'daycare16.jpg'),
+(1, 1, 'Regal Pets Centre', 'The ultimate pet place', 'nashik', 'aditi6301@gmail.com', 9999776765, 'daycare16.jpg'),
 (2, 1, 'Pets Care Centre & Pet Resort', ' One-stop destination servicing customers both local and from other parts of Nashik.', 'Shop 18, Samrat Nucleus, Kathe Galli to Mumbai Naka Link Roa', 'nidhiabhyankar@gmail.com', 9878678564, 'daycare2.jpg'),
 (3, 1, 'Pets Mania', 'We believe in keeping your pets happawy.', 'Shop No 2 Gajanan Sankul, Gangapur Road, Nashik - 422002, Ne', 'viditbapat@gmail.com', 9878675645, 'daycare3.jpg');
 

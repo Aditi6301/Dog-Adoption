@@ -1,5 +1,25 @@
 <?php
 include('addDayCare.php');
+if ( isset($_SESSION['mailsuccess']) && $_SESSION['mailsuccess'] == 1 )
+{
+  unset($_SESSION['mailsuccess']);
+?>
+<div class="alert alert-success" id="success-alert">
+    <button type="button" class="close" data-dismiss="alert">x</button>
+    <strong>The DayCare will contact you soon!</strong>
+    </div>
+<?php
+}
+if ( isset($_SESSION['mailsuccess']) && $_SESSION['mailsuccess'] == 0 )
+{
+  unset($_SESSION['mailsuccess']);
+?>
+<div class="alert alert-danger" id="success-alert">
+    <button type="button" class="close" data-dismiss="alert">x</button>
+    <strong>Error occured.Please try again.</strong>
+    </div>
+<?php
+}
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -141,7 +161,8 @@ include('addDayCare.php');
 <?php
 $data = $conn->query("SELECT * FROM daycare")->fetchAll();
                     foreach ($data as $row) 
-                    { ?>
+                    {
+                      $daycare_id=$row['daycare_id']; ?>
       <!-- Project Four -->
       <div class="row">
 
@@ -157,7 +178,7 @@ $data = $conn->query("SELECT * FROM daycare")->fetchAll();
           <h6>Email: <?php echo $row['email']?></h6>
           <h6>Contact No: <?php echo $row['phone_no']?></h6>
           
-          <a class="btn btn-primary" href="#">Contact Us</a>
+          <a class="btn btn-primary" href="./mail/daycare_mail.php?daycare_id=<?php echo $daycare_id ?>">Contact Us</a>
         </div>
       </div>
       <hr>
