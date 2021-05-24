@@ -1,5 +1,25 @@
 <?php
 include('AddDog.php');
+if ( isset($_SESSION['mailsuccess']) && $_SESSION['mailsuccess'] == 1 )
+{
+  unset($_SESSION['mailsuccess']);
+?>
+<div class="alert alert-success" id="success-alert">
+    <button type="button" class="close" data-dismiss="alert">x</button>
+    <strong>The details for the adoption/fostering procedure are sent on your registered e-mail!</strong>
+    </div>
+<?php
+}
+if ( isset($_SESSION['mailsuccess']) && $_SESSION['mailsuccess'] == 0 )
+{
+  unset($_SESSION['mailsuccess']);
+?>
+<div class="alert alert-danger" id="success-alert">
+    <button type="button" class="close" data-dismiss="alert">x</button>
+    <strong>Error occured.Please try again.</strong>
+    </div>
+<?php
+}
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -68,7 +88,7 @@ include('AddDog.php');
         <p class="mb-4"><a class="btn btn-primary btn-icon-split btn-sm" data-toggle="modal" href="#AddNewModal"> <span class="text">Add New Doggo</span></a></p>
         <form method="post" enctype="multipart/form-data">
     <div class="portfolio-modal-lg modal fade" id="AddNewModal" tabindex="-1" role="dialog" aria-hidden="true">
- 
+
         <div class="modal-dialog">
         <div class="modal-content">
             <div class="close-modal" data-dismiss="modal">
@@ -81,10 +101,10 @@ include('AddDog.php');
           <div class="row">
             <div class="col-lg-10 mx-auto">
               <div class="modal-body">
-               
+
 
                 <ul class="list-inline">
-                    
+
                     <div class="form-group">
                       <input type="text" name="Name" class="form-control form-control-user" id="exampleInputEmail" aria-describedby="emailHelp" placeholder="Name">
                     </div>
@@ -105,15 +125,15 @@ include('AddDog.php');
                         <input type="file" class="custom-file-input" name="image" id="customFile" data-toggle="tooltip" data-placement="top">
                         <label align="left" class="custom-file-label" for="customFile">Dog Image</label>
                      </div>
-                
-                	
-                	
-                    
+
+
+
+
                     </ul>
-                
-                
-                    
-                <button name="Add_title" class="btn btn-primary" type="submit">Add New Doggo</button>   
+
+
+
+                <button name="Add_title" class="btn btn-primary" type="submit">Add New Doggo</button>
                 <button class="btn btn-primary" data-dismiss="modal" type="button">
                   <i class="fas fa-times"></i>
                   Close</button>
@@ -126,7 +146,7 @@ include('AddDog.php');
   </div>
 </form>
 
-       
+
 <div class="container">
 
       <!-- Page Heading -->
@@ -137,7 +157,7 @@ include('AddDog.php');
 <!-- Page Heading -->
 <?php
 $data = $conn->query("SELECT * FROM adoptionpup")->fetchAll();
-                    foreach ($data as $row) 
+                    foreach ($data as $row)
                     { ?>
       <!-- Project Four -->
       <div class="row">
@@ -148,11 +168,12 @@ $data = $conn->query("SELECT * FROM adoptionpup")->fetchAll();
           </a>
         </div>
         <div class="col-md-4" style="width:300px;" >
+
           <h3><?php echo $row['name']?></h3>
           <h5>Age: <?php echo $row['age']?></h5>
           <h6>City: <?php echo $row['city']?></h6>
           <div><?php echo $row['description']?></div>
-          <div class="form-check">
+          <!-- <div class="form-check">
           <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault1">
           <label class="form-check-label" for="flexRadioDefault1">
             Adoption
@@ -163,8 +184,10 @@ $data = $conn->query("SELECT * FROM adoptionpup")->fetchAll();
           <label class="form-check-label" for="flexRadioDefault2">
            Fostering
           </label>
-        </div>
-          <a class="btn btn-primary" href="#">I'm Interested</a>
+        </div> -->
+        <?php $pup_id=$row['pup_id'];?>
+          <a class="btn btn-primary" href="./mail/adoption_mail.php?pup_id=<?php echo $pup_id;?>">I want to Adopt</a>
+          <a class="btn btn-primary" href="./mail/foster_mail.php?pup_id=<?php echo $pup_id;?>">I want to Foster</a>
         </div>
       </div>
       <hr>
@@ -198,10 +221,10 @@ $data = $conn->query("SELECT * FROM adoptionpup")->fetchAll();
         </li>
       </ul>
 
-      
+
     </div>
- 
-                
+
+
 <footer class="sticky-footer bg-white">
   <div class="container my-auto">
     <div class="copyright text-center my-auto">
