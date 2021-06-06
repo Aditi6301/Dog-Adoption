@@ -23,9 +23,12 @@ if(isset($_POST['LoginUser']))
 
                 $_SESSION["loggedin"] = true;
                 $_SESSION["user_id"] = $row['user_id'];
+                $first_name=$row['first_name'];
+                $last_name=$row['last_name'];
                 $_SESSION["email"] = $email;
-                $SESSION["first_name"]=$row['first_name'];
                 echo $_SESSION["user_id"];
+                $_SESSION["user_name"]=$first_name.' '.$last_name;
+                echo $_SESSION["user_name"];
 
                 //on session creation
                 $_SESSION['timestamp']=time();
