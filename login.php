@@ -1,5 +1,16 @@
 <?php
 include('LoginProcess.php');
+if ( isset($_GET['loginfirst']) && $_GET['loginfirst'] == 1 )
+{
+  unset($_GET['mailsuccess']);
+?>
+<div class="alert alert-success" id="success-alert">
+    <button type="button" class="close" data-dismiss="alert">x</button>
+    <strong>Please login first!</strong>
+    </div>
+<?php
+}
+
 ?>
 <!DOCTYPE html>
 <html lang="en">

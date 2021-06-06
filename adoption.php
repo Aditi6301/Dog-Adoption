@@ -81,6 +81,12 @@ if ( isset($_SESSION['mailsuccess']) && $_SESSION['mailsuccess'] == 0 )
           <button id="sidebarToggleTop" class="btn btn-link d-md-none rounded-circle mr-3">
             <i class="fa fa-bars" style="color:#fed136"></i>
           </button>
+
+          <?php 
+            if(isset($_SESSION['user_name']) && !empty($_SESSION['user_name']))
+          {
+          ?>
+
           <ul class="navbar-nav ml-auto">
   <!-- Nav Item - User Information -->
   <li class="nav-item dropdown no-arrow">
@@ -95,29 +101,36 @@ if ( isset($_SESSION['mailsuccess']) && $_SESSION['mailsuccess'] == 0 )
         Profile
       </a>
       <div class="dropdown-divider"></div>
-      <!-- <a  href="logout.php" class="dropdown-item" data-toggle="modal" data-target="#logoutModal">
-        <i class="fas fa-sign-out-alt fa-sm fa-fw mr-2 text-gray-400"></i>
-        Logout
-      </a> -->
       <a href="daycare.php" class="dropdown-item"> <i class="fas fa-sign-out-alt fa-sm fa-fw mr-2 text-gray-400"></i>Day Care</a>
-      <!-- <div class="dropdown-divider"></div> -->
-      <!-- <a  href="logout.php" class="dropdown-item" data-toggle="modal" data-target="#logoutModal">
-        <i class="fas fa-sign-out-alt fa-sm fa-fw mr-2 text-gray-400"></i>
-        Logout
-      </a> -->
-      <!-- <a href="tables.php" class="dropdown-item"> <i class="fas fa-sign-out-alt fa-sm fa-fw mr-2 text-gray-400"></i>Brand Records</a> -->
-    
+      
       <div class="dropdown-divider"></div>
-      <!-- <a  href="logout.php" class="dropdown-item" data-toggle="modal" data-target="#logoutModal">
-        <i class="fas fa-sign-out-alt fa-sm fa-fw mr-2 text-gray-400"></i>
-        Logout
-      </a> -->
-      <!-- <a href="login.php" class="dropdown-item"> <i class="fas fa-sign-out-alt fa-sm fa-fw mr-2 text-gray-400"></i>Admin</a> -->
-      <!-- <a  href="logout.php" class="dropdown-item" data-toggle="modal" data-target="#logoutModal">
-        <i class="fas fa-sign-out-alt fa-sm fa-fw mr-2 text-gray-400"></i>
-        Logout
-      </a> -->
       <a href="logout.php" class="dropdown-item"> <i class="fas fa-sign-out-alt fa-sm fa-fw mr-2 text-gray-400"></i>Logout</a>
+</div>
+    
+  </li>
+
+</ul>
+         <?php 
+          }
+          else
+          {
+          ?>
+           <ul class="navbar-nav ml-auto">
+  <!-- Nav Item - User Information -->
+  <li class="nav-item dropdown no-arrow">
+    <a class="nav-link dropdown-toggle" href="#" id="userDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+      <span class="mr-2 d-none d-lg-inline text-gray-600 small">Unknown</span>
+      <img class="img-profile rounded-circle" src="img/dp.png">
+    </a>
+    <!-- Dropdown - User Information -->
+    <div class="dropdown-menu dropdown-menu-right shadow animated--grow-in" aria-labelledby="userDropdown">
+      <a class="dropdown-item" href="UserProfile.php">
+        <i class="fas fa-user fa-sm fa-fw mr-2 text-gray-400"></i>
+        Register
+      </a>
+      <div class="dropdown-divider"></div>
+      <a href="daycare.php" class="dropdown-item"> <i class="fas fa-sign-out-alt fa-sm fa-fw mr-2 text-gray-400"></i>Day Care</a>
+      
 </div>
     
   </li>
@@ -125,9 +138,15 @@ if ( isset($_SESSION['mailsuccess']) && $_SESSION['mailsuccess'] == 0 )
 </ul>
 
 
+            <?php 
+            }
+              ?>
+
+
+
 
         </nav>
-        <p class="mb-4"><a class="btn btn-primary btn-icon-split btn-sm" data-toggle="modal" href="#AddNewModal"> <span class="text">Add New Doggo</span></a></p>
+        <p class="mb-4"><button class="btn btn-primary btn-icon-split btn-sm" data-toggle="modal" id="myBtn"> <span class="text">Add New Doggo</span></button></p>
         <form method="post" enctype="multipart/form-data">
     <div class="portfolio-modal-lg modal fade" id="AddNewModal" tabindex="-1" role="dialog" aria-hidden="true">
 
@@ -227,9 +246,23 @@ $data = $conn->query("SELECT * FROM adoptionpup")->fetchAll();
            Fostering
           </label>
         </div> -->
-        <?php $pup_id=$row['pup_id'];?>
+        <?php 
+          if(isset($_SESSION['user_name']) && !empty($_SESSION['user_name']))
+          {$pup_id=$row['pup_id'];
+          ?>
           <a class="btn btn-primary" href="./mail/adoption_mail.php?pup_id=<?php echo $pup_id;?>">I want to Adopt</a>
           <a class="btn btn-primary" href="./mail/foster_mail.php?pup_id=<?php echo $pup_id;?>">I want to Foster</a>
+
+          <?php
+          }
+          else
+          {
+          ?>
+          <a class="btn btn-primary" href="login.php?loginfirst=1">I want to Adopt</a>
+          <a class="btn btn-primary" href="login.php?loginfirst=1">I want to Foster</a>
+          <?php 
+          }
+          ?>
         </div>
       </div>
       <hr>
@@ -305,7 +338,27 @@ $data = $conn->query("SELECT * FROM adoptionpup")->fetchAll();
 
 <!-- Page level custom scripts -->
 <script src="js/demo/datatables-demo.js"></script>
-
+<script>
+$(document).ready(function(){
+  $("#myBtn").click(function()
+  {
+    <?php 
+        if(isset($_SESSION['user_name']) && !empty($_SESSION['user_name']))
+        {
+    ?>
+    $("#AddNewModal").modal();
+    <?php
+        }
+        else
+        {
+          ?>
+          window.location.href='login.php?loginfirst=1';
+        <?php  
+        }
+        ?>
+  });
+});
+</script>
 </body>
 
 </html>
